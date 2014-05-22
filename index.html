@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Multiplication Flash Cards</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="base.css">
+    <link rel="stylesheet" type="text/css" href="narrow.css"
+          media="screen and (min-device-width: 320px) and (max-device-width: 568px)">
+    <link rel="stylesheet" type="text/css" href="wide.css"
+          media="screen and (min-device-width: 569px)">
+  </head>
+
+  <body>
+    <form id="test-form">
+      <span class="test">
+        <span id="op1"></span>
+        &times;
+        <span id="op2"></span>
+        &equals;
+        <input id="answer" type="number" autocomplete="off">
+      </span>
+
+      <button id="submit" type="submit">Check</button>
+    </form>
+
+    <div id="is-correct">
+      <span id="correct">Correct</span>
+      <span id="incorrect">Incorrect. The answer is
+        <span id="correct-answer"></span>.
+      </span>
+
+      <div id="timer">
+        It took you <span id="time"></span> seconds to answer.
+      </div>
+    </div>
+
+    <script src="mult.js"></script>
+  </body>
+</html>

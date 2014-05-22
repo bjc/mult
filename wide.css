@@ -1,0 +1,20 @@
+body {
+    font-size: 24px;
+}
+
+form {
+    margin: 50px auto;
+    padding: 30px;
+}
+
+#answer {
+    font-size: 24px;
+    width: 75px;
+}
+
+#submit {
+    font-size: 24px;
+    padding: 5px 15px;
+    width: 153px;
+    height: 41px;
+}

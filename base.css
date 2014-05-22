@@ -1,0 +1,58 @@
+body {
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+
+form {
+    display: table;
+    border: 1px solid #bf9730;
+    border-radius: 10px;
+    background-color: #ffd873;
+    box-shadow: 0 5px 5px #888;
+}
+
+#op1, #op2 {
+    display: inline-block;
+    width: 1.5em;
+    text-align: center;
+}
+
+#answer {
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    margin-left: 0.5em;
+}
+
+#submit {
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    border: 1px outset #63add0;
+    border-radius: 8px;
+    color: white;
+
+    background: linear-gradient(to bottom, rgba(122,188,255,1) 0%,rgba(96,171,248,1) 44%,rgba(64,150,238,1) 100%); /* W3C */
+}
+
+#submit:hover {
+    background: linear-gradient(to bottom, rgba(122,188,255,1) 37%,rgba(96,171,248,1) 82%,rgba(64,150,238,1) 100%); /* W3C */
+}
+
+#submit:active {
+    border-style: inset;
+    background: linear-gradient(to bottom, rgba(64,150,238,1) 0%,rgba(96,171,248,1) 56%,rgba(122,188,255,1) 100%); /* W3C */
+}
+
+#is-correct {
+    text-align: center;
+}
+
+#correct {
+    display: none;
+    color: green;
+}
+
+#incorrect {
+    display: none;
+    color: red;
+}
+
+#timer {
+    display: none;
+}

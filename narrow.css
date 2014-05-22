@@ -1,0 +1,67 @@
+@media (orientation: portrait) {
+    body {
+        font-size: 18px;
+    }
+
+    form {
+        margin: 0 auto;
+        padding: 10px;
+    }
+
+    form span.test {
+        display: block;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    #answer {
+        font-size: 18px;
+        width: 40px;
+    }
+
+    #submit {
+        display: block;
+        margin: 10px auto 0 auto;
+        padding: 5px 15px;
+        font-size: 18px;
+    }
+
+    #is-correct {
+        margin-top: 20px;
+    }
+}
+
+/*
+ * TODO: this is probably a wash, since so much of the screen is taken up
+ * by the keyboard that there's basically nothing visible anyway.
+ * -bjc (2014-May-21)
+ */
+@media (orientation: landscape) {
+    body {
+       font-size: 12px;
+    }
+
+    form {
+        margin: 0 auto;
+        padding: 5px;
+    }
+
+    form span.test {
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    #answer {
+        font-size: 12px;
+        width: 40px;
+    }
+
+    #submit {
+        padding: 5px 15px;
+        font-size: 12px;
+    }
+
+    #is-correct {
+        margin-top: 10px;
+    }
+}
