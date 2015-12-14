@@ -1,6 +1,7 @@
 var TABLE_SIZE = 12;
 
-var startDate, op1, op2, ans;
+var startDate;
+var answerHistory = [];
 
 var testFormEl      = document.getElementById('test-form');
 var op1El           = document.getElementById('op1');
@@ -13,35 +14,38 @@ var correctAnswerEl = document.getElementById('correct-answer');
 var submitEl        = document.getElementById('submit');
 var timerEl         = document.getElementById('timer');
 var timeEl          = document.getElementById('time');
+var historyEl       = document.getElementById('history-list')
+var averageEl       = document.getElementById('history-average')
+
+function question() {
+    this.op1 = Math.round(Math.random() * (TABLE_SIZE-1) + 1);
+    this.op2 = Math.round(Math.random() * (TABLE_SIZE-1) + 1);
+    this.ans = this.op1 * this.op2;
+}
 
 function setUp()
 {
-    op1 = Math.round(Math.random() * (TABLE_SIZE-1) + 1);
-    op2 = Math.round(Math.random() * (TABLE_SIZE-1) + 1);
-    ans = op1 * op2;
+    q = new question();
 
-    op1El.innerHTML           = op1;
-    op2El.innerHTML           = op2;
-    answerEl.value            = '';
-    correctAnswerEl.innerHTML = ans;
-    testFormEl.onsubmit       = checkAnswer;
-
-    submitEl.innerHTML        = 'Check';
-    timerEl.style.display     = 'none';
-    correctEl.style.display   = 'none';
-    incorrectEl.style.display = 'none';
+    op1El.innerHTML     = q.op1;
+    op2El.innerHTML     = q.op2;
+    answerEl.value      = '';
+    testFormEl.onsubmit = function () { checkAnswer(q); return false; };
 
     answerEl.focus();
 
     startDate = new Date();
 }
 
-function checkAnswer() {
+function checkAnswer(q) {
     var endDate = new Date();
-    timeEl.innerHTML = ((endDate - startDate)/1000).toFixed(1);
+    q.elapsed = (endDate - startDate)/1000
+    time = q.elapsed.toFixed(1)
+    timeEl.innerHTML = time;
     timerEl.style.display = 'block';
 
-    if (answerEl.value == ans) {
+    correctAnswerEl.innerHTML = q.ans;
+    if (answerEl.value == q.ans) {
         correctEl.style.display   = 'inline';
         incorrectEl.style.display = 'none';
     } else {
@@ -49,11 +53,22 @@ function checkAnswer() {
         correctEl.style.display   = 'none';
     }
 
-    testFormEl.onsubmit = refresh;
-    submitEl.innerHTML  = 'Try another';
-    answerEl.focus();
+    addToHistory(time)
+    answerHistory.push(q)
+    averageEl.innerHTML = (answerHistory.reduce(function (acc, val) { return acc + val.elapsed }, 0) / answerHistory.length).toFixed(1)
 
-    return false;
+    setUp();
+}
+
+function addToHistory(time) {
+    var children = historyEl.childNodes;
+    for (i = children.length; i > 4; i--) {
+        historyEl.removeChild(children[children.length - i]);
+    }
+
+    var item = document.createElement('li');
+    item.appendChild(document.createTextNode(time));
+    historyEl.appendChild(item);
 }
 
 function refresh() {

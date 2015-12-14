@@ -1,12 +1,14 @@
+/* http://paletton.com/#uid=31c0s0kievNiOL7iHDdh6sMg2o2 */
+
 body {
     font-family: "Helvetica Neue", Helvetica, sans-serif;
 }
 
 form {
     display: table;
-    border: 1px solid #bf9730;
+    border: 1px solid #c0a860;
     border-radius: 10px;
-    background-color: #ffd873;
+    background-color: #fdda6d;
     box-shadow: 0 5px 5px #888;
 }
 
@@ -55,4 +57,27 @@ form {
 
 #timer {
     display: none;
+}
+
+#history {
+    border: 1px outset #5f4782;
+    border-radius: 10px;
+    background-color: #9363d6;
+    padding: 0.5em;
+    width: 3em;
+    position: absolute;
+    text-align: right;
+}
+
+#history-list {
+    list-style: none;
+    padding: 0;
+}
+
+#history li::after {
+    content: "s"
+}
+
+#history summary::after {
+    content: "s"
 }

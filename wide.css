@@ -18,3 +18,8 @@ form {
     width: 153px;
     height: 41px;
 }
+
+#history {
+    top: 25px;
+    right: 50px;
+}
